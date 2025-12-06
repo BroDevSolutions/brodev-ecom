@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SnackPedasKu - Jajanan Pedas Gurih Krispi</title>
+
+    <!-- Google Fonts: Montserrat & Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome untuk Ikon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- css -->
+     <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- ALERT CONTAINER -->
+    <div id="alert-container"></div>
+
+    <!-- HEADER & NAVBAR -->
+    <header class="main-header">
+      <div class="container">
+        <nav class="navbar">
+          <a href="#" class="logo" onclick="showPage('homepage')">
+            <i class="fas fa-pepper-hot"></i> goyal gayil
+          </a>
+          <div class="search-bar" id="main-search-bar">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Cari snack pedas favoritmu..."
+              onkeyup="handleSearch()"
+            />
+            <i class="fas fa-search"></i>
+          </div>
+          <div class="nav-icons">
+            <div class="mobile-search-toggle" onclick="toggleMobileSearch()">
+              <i class="fas fa-search"></i>
+            </div>
+            <div class="cart-icon" onclick="showPage('cart-page')">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-count" id="cart-count">0</span>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- HOMEPAGE SECTION -->
+      <section id="homepage" class="page-section active">
+        <div class="banner">
+          <h2>Promo Awal Tahun!</h2>
+          <p>Diskon 20% untuk semua pembelian di atas Rp 100.000</p>
+        </div>
+
+        <div class="categories">
+          <button class="category-btn active" onclick="filterByCategory('all')">
+            Semua
+          </button>
+          <button class="category-btn" onclick="filterByCategory('keripik')">
+            Keripik
+          </button>
+          <button class="category-btn" onclick="filterByCategory('baso')">
+            Baso & Mie
+          </button>
+          <button class="category-btn" onclick="filterByCategory('makaroni')">
+            Makaroni
+          </button>
+        </div>
+
+        <div class="products-grid" id="products-grid">
+          <!-- Produk akan dimuat di sini oleh JavaScript -->
+        </div>
+      </section>
+
+      <!-- PRODUCT DETAIL SECTION -->
+      <section id="product-detail-page" class="page-section">
+        <button class="btn btn-secondary" onclick="showPage('homepage')">
+          <i class="fas fa-arrow-left"></i> Kembali
+        </button>
+        <div class="product-detail" id="product-detail-content">
+          <!-- Detail produk akan dimuat di sini oleh JavaScript -->
+        </div>
+      </section>
+
+      <!-- CART PAGE SECTION -->
+      <section id="cart-page" class="page-section">
+        <button class="btn btn-secondary back-btn-mobile" onclick="showPage('homepage')">
+          <i class="fas fa-arrow-left"></i> Kembali
+        </button>
+        <div class="cart-page-container">
+          <h2>Keranjang Belanja</h2>
+          <div class="cart-items" id="cart-items-container">
+            <!-- Item keranjang akan dimuat di sini -->
+          </div>
+          <div class="cart-summary">
+            <h3>Total: <span id="cart-total">Rp 0</span></h3>
+            <button class="btn btn-primary" onclick="showPage('checkout-page')">
+              Lanjut ke Checkout
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHECKOUT PAGE SECTION -->
+      <section id="checkout-page" class="page-section">
+        <button class="btn btn-secondary back-btn-mobile" onclick="showPage('cart-page')">
+          <i class="fas fa-arrow-left"></i> Kembali ke Keranjang
+        </button>
+        <div class="checkout-container">
+          <div class="checkout-form">
+            <h2>Data Diri</h2>
+            <form id="checkoutForm">
+              <div class="form-group">
+                <label for="name">Nama Lengkap</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="address">Alamat Lengkap</label>
+                <textarea
+                  id="address"
+                  name="address"
+                  rows="4"
+                  required
+                ></textarea>
+              </div>
+              <div class="form-group">
+                <label for="whatsapp">Nomor WhatsApp</label>
+                <input
+                  type="tel"
+                  id="whatsapp"
+                  name="whatsapp"
+                  placeholder="08123456789"
+                  required
+                />
+              </div>
+            </form>
+          </div>
+          <div class="checkout-summary">
+            <h3>Ringkasan Pesanan</h3>
+            <div id="order-summary">
+              <!-- Ringkasan pesanan akan dimuat di sini -->
+            </div>
+            <button
+              class="btn btn-primary btn-block"
+              onclick="redirectWhatsApp()"
+            >
+              Buat Pesanan via WhatsApp
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Tentang SnackPedasKu</h3>
+            <p>
+              SnackPedasKu adalah destinasi utama bagi para pecinta makanan
+              pedas. Kami menyediakan berbagai camilan pedas, gurih, dan
+              tentunya krispi yang dipilih langsung dari produsen terbaik.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h3>Link Cepat</h3>
+            <ul>
+              <li><a href="#" onclick="showPage('homepage')">Beranda</a></li>
+              <li><a href="#" onclick="showPage('cart-page')">Keranjang</a></li>
+              <li><a href="#">Cara Pemesanan</a></li>
+              <li><a href="#">Kebijakan Privasi</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Ikuti Kami</h3>
+            <p>Temukan promo dan snack terbaru kami!</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-tiktok"></i></a>
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 goyal gayil. All Rights Reserved
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- AOS Script -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<!-- GSAP untuk Advanced Animations -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- Initialize AOS -->
+<script>
+  AOS.init({
+    duration: 1000,
+    easing: 'ease-in-out',
+    once: false,
+    mirror: true
+  });
+</script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
