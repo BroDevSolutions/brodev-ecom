@@ -813,8 +813,8 @@ function generateReceiptModal(paymentMethod) {
         
         <div class="receipt-footer">
         <div class="receipt-contact">
-          <h3>Kirim ke Admin</h3>
-          <a href="https://wa.me/628563574966?text=Saya%20ingin%20konfirmasi%20pesanan%20${orderId}" class="btn btn-primary" target="_blank"><i class="fab fa-whatsapp"></i> Hubungi Admin</a>
+          <h3>Kirim Pesanan ke Admin</h3>
+          <a href="https://wa.me/628563574966?text=Saya%20ingin%20konfirmasi%20pesanan%20${orderId}" class="btn btn-primary" target="_blank"><i class="fab fa-whatsapp"></i> Kirim ke Admin</a>
         </div>
         <button class="btn btn-secondary" onclick="printReceipt()"><i class="fas fa-print"></i> Cetak</button>
         <button class="btn btn-primary" onclick="finishOrder()"><i class="fas fa-home"></i> Selesai</button>
@@ -1047,3 +1047,4 @@ function selectSize(btn) {
     }
   }
 }
+
