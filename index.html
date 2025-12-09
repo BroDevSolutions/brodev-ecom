@@ -68,23 +68,60 @@
     <main class="container">
       <!-- HOMEPAGE SECTION -->
       <section id="homepage" class="page-section active">
-        <div class="banner">
-          <h2>Promo Awal Tahun!</h2>
-          <p>Diskon 20% untuk semua pembelian di atas Rp 100.000</p>
+        <div class="banner-carousel">
+          <div class="banner-slide">
+            <img src="image/jamurCrispy.jpg" alt="Jamur Crispy" />
+            <div class="banner-overlay">
+              <h2>Nikmati Kelezatan Jamur Crispy</h2>
+              <p>Renyah di luar, gurih di dalamnya</p>
+            </div>
+          </div>
+          <div class="banner-slide">
+            <img src="image/TahuLuntasOriginal_250g.jpg" alt="Tahu Luntas" />
+            <div class="banner-overlay">
+              <h2>Tahu Luntas Favorit Anda</h2>
+              <p>Kelezatan yang tak tertahankan</p>
+            </div>
+          </div>
+          <div class="banner-slide">
+            <img src="image/pisangManis_500g.jpg" alt="Pisang Manis" />
+            <div class="banner-overlay">
+              <h2>Pisang Manis Gurih Krispi</h2>
+              <p>Camilan sempurna untuk keluarga</p>
+            </div>
+          </div>
+          <div class="banner-slide">
+            <img src="image/pare_500g.jpg" alt="Kerupuk Lokal" />
+            <div class="banner-overlay">
+              <h2>Kerupuk Lokal Berkualitas</h2>
+              <p>Cita rasa tradisional yang autentik</p>
+            </div>
+          </div>
+          
+          <!-- Navigation buttons -->
+          <button class="carousel-btn prev" onclick="prevBannerSlide()">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="carousel-btn next" onclick="nextBannerSlide()">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+          
+          <!-- Dots indicator -->
+          <div class="carousel-dots" id="carousel-dots"></div>
         </div>
 
         <div class="categories">
           <button class="category-btn active" onclick="filterByCategory('all')">
             Semua
           </button>
+          <button class="category-btn" onclick="filterByCategory('original')">
+            Gurih
+          </button>
           <button class="category-btn" onclick="filterByCategory('pedas')">
             Pedas
           </button>
           <button class="category-btn" onclick="filterByCategory('manis')">
             Manis
-          </button>
-          <button class="category-btn" onclick="filterByCategory('gurih')">
-            Gurih
           </button>
         </div>
 
@@ -193,19 +230,7 @@
                     />
                     <label for="e-wallet">
                       <i class="fas fa-wallet"></i>
-                      <span>E-Wallet (OVO, Dana, etc)</span>
-                    </label>
-                  </div>
-                  <div class="payment-option">
-                    <input
-                      type="radio"
-                      id="cod"
-                      name="payment-method"
-                      value="cod"
-                    />
-                    <label for="cod">
-                      <i class="fas fa-truck"></i>
-                      <span>Cash On Delivery (COD)</span>
+                      <span>Dana</span>
                     </label>
                   </div>
                 </div>
